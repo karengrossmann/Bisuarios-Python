@@ -1,0 +1,14 @@
+# Autores: Aline e Eric
+# Data: 21/02/2019
+
+# Ao tentar acessar os arquivos netCDF do Opendap pelo spyder no Windows 
+# aparece o erro:
+
+OSError: [Errno -90] NetCDF: file not found: b'filename'
+
+# Para resolver, adicionar a seguinte variavel as variaveis de sistema do Windows:
+
+# NO_PROXY
+# petrobras.com.br
+
+# Fechar e abrir o spyder novamente.
