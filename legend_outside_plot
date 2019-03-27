@@ -1,0 +1,48 @@
+# Referencia: https://stackoverflow.com/questions/4700614/how-to-put-the-legend-out-of-the-plot
+
+# A legend is positioned inside the bounding box of the axes using the 
+# loc argument to plt.legend.
+# E.g. loc="upper right" places the legend in the upper right corner of the 
+# bounding box, which by default extents from (0,0) to (1,1) in axes coordinates 
+# (or in bounding box notation (x0,y0, width, height)=(0,0,1,1)).
+
+# To place the legend outside of the axes bounding box, one may specify a tuple (x0,y0) 
+# of axes coordinates of the lower left corner of the legend.
+
+plt.legend(loc=(1.04,0))
+
+# However, a more versatile approach would be to manually specify the bounding box 
+# into which the legend should be placed, using the bbox_to_anchor argument. 
+# One can restrict oneself to supply only the (x0,y0) part of the bbox. This creates 
+# a zero span box, out of which the legend will expand in the direction given by the loc argument. E.g.
+
+plt.legend(bbox_to_anchor=(1.04,1), loc="upper left")
+
+# places the legend outside the axes, such that the upper left corner of the legend is at 
+# position (1.04,1) in axes coordinates. 
+
+# Figura explicativa:
+# https://i.stack.imgur.com/OIMyM.png
+
+# colocando a legenda do grafico fora da area de plot
+# legend outside plot area
+
+import matplotlib.pyplot as plt
+
+# legenda no canto superior direito, sobrepondo parte da area de plot
+plt.legend(bbox_to_anchor=(1.1, 1.05))
+
+# legenda centralizada na parte superior do plot
+# com sombreamento na parte de baixo (shadow) e 
+# rounded corners (fancybox = True), bordas arredondadas
+plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.05),
+          ncol=3, fancybox=True, shadow=True)
+
+# Put a legend to the right of the current axis
+ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+
+# Put a legend below current axis
+# coloca a legenda com 5 colunas, fazendo com que
+# a legenda fique na horizontal e nao na vertical
+ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.05),
+          fancybox=True, shadow=True, ncol=5)
