@@ -1,0 +1,7 @@
+# Como quebrar o plot label em duas linhas
+# apenas adicionando o caracter \n :
+
+
+    plt.ylabel('Wave Direction' 
+               '\n'
+               r'(degree)', fontsize=fontsize-2)
