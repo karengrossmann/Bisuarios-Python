@@ -1,0 +1,13 @@
+# PARA CRIAR SUBPLOT SEM O XTICKLABEL, DEVE CRIAR UM SUBPLOT ATRIBUINDO O AX = SUBPLOT
+# PRA DEPOIS USAR O PLT.SETP(AX.GET_XTICKALBELS(), VISIBLE = FALSE)
+    
+    ax2 = plt.subplot(3,1,2)
+    plt.plot(buoydf.wave_hs,
+             linestyle=' ',
+             marker='.')
+    #plt.title(buoy.description[5:], fontsize=fontsize)
+    plt.title(' ')
+    plt.ylabel(r'Significant Wave '
+               '\n'
+               r'Height (m)', fontsize=fontsize-2)
+    plt.setp(ax2.get_xticklabels(), visible=False)
