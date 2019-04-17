@@ -1,0 +1,7 @@
+import os, sys
+
+# separa o caminho em path e file
+path, file = os.path.split('caminho')
+
+# pega somente do diretorio
+os.path.dirname('caminho')
