@@ -1,0 +1,16 @@
+# https://geohackweek.github.io/nDarrays/09-masking/
+
+# usando where
+
+ds.sel(time="1984-06-21")['t2m'].where(ds.t2m > 293.15).plot()
+
+# criando uma mascara do tamanho do Dataset
+
+import numpy as np
+mask_ocean = 2 * np.ones((ds.dims['latitude'], ds.dims['longitude'])) * np.isfinite(ds.sst.isel(time=0))  
+mask_land = 1 * np.ones((ds.dims['latitude'], ds.dims['longitude'])) * np.isnan(ds.sst.isel(time=0))  
+mask_array = mask_ocean + mask_land
+mask_array.plot()
+
+# adicionando a mascara como uma nova coordenada
+ds.coords['mask'] = (('latitude', 'longitude'), mask_array)
