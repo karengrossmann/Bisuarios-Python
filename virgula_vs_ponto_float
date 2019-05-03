@@ -1,0 +1,12 @@
+# o python nao entende valores fracionarios com virgula. 
+# porem o pandas tem uma opcao de leitura que já resolve esse problema, sem ter que reescrever o arquivo.
+# no comando de leitura do arquivo, eh possivel incluir a opcao 'thousands' com o parametro ','
+# indicando que o separador das dezenas eh a virgula e nao o ponto.
+
+arquivo = pd.read_csv(PASTA_ARQ + '/' + arq,
+                      sep=';',
+                      header = 0,
+                      index_col=0,
+                      parse_dates=True,
+                      na_values='NaN',
+                      thousands=',')
