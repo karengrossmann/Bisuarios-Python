@@ -9,4 +9,8 @@ arquivo = pd.read_csv(PASTA_ARQ + '/' + arq,
                       index_col=0,
                       parse_dates=True,
                       na_values='NaN',
-                      thousands=',')
+                      thousands=',')   # decimal = ','
+
+# existe a opcao de separador decinmal tambem, mas nao sei pq nao estava funcionando no meu loop.
+# entao tive que colocar como separador de milhar e depois dividir por 10, mas pelo menos ele ja
+# reconhecia como sendo um float e nao uma string.
