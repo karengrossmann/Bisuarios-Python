@@ -1,0 +1,13 @@
+    plt.figure(figsize=[20,9])
+    ax = plt.axes(projection=ccrs.PlateCarree())
+    ax.coastlines(resolution='50m')
+    levels = np.linspace(K.values.min(), K.values.max(), 10)
+    CS = plt.contourf(K.longitude, 
+                 K.latitude,
+                 K.sel(time = tempo),
+                 levels=levels,
+                 linestyles='solid',
+                 cmap='coolwarm',
+                 extend='min')
+    
+    colorbar = plt.colorbar(CS)
